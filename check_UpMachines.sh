@@ -5,7 +5,7 @@
 # in the 'UpMachines' subfolder.
 #This script better be run as an scheduled cron task
 
-source paths.conf
+source $BYOBU_CONFIG_DIR/bin/UpMachines/paths.conf
 
 while read line
 do
@@ -24,4 +24,4 @@ do
     fi
 
   fi
-done < $ProjectPath/machines.conf
+done < $HOME/.UpMachines.conf

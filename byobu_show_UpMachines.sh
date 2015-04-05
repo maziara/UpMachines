@@ -24,5 +24,5 @@ do
     fi
 
   fi
-done < <(cat "$ProjectPath"/machines.conf)
+done < <(cat "$HOME"/.UpMachines.conf)
 echo -e $text

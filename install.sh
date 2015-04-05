@@ -7,22 +7,27 @@
 #
 
 if [ -e byobu_show_UpMachines.sh ]; then
-  if [ ! -e ../120_UpMachines ]; then
-    ln -s ./byobu_show_UpMachines.sh ../120_UpMachines ;
+  if [ ! -h ../120_UpMachines ]; then
+    ln -s ./UpMachines/byobu_show_UpMachines.sh ../120_UpMachines ;
     echo "Link created in byobu's bin folder.";
   fi
 
-  if [ ! -e UpMachines ]; then
+  if [ ! -d UpMachines ]; then
     mkdir UpMachines;  #folder for the labels
     echo "Label folders created.";
   fi
 
   line="*/5 * * * * $BYOBU_CONFIG_DIR/bin/UpMachines/check_UpMachines.sh"
-  if crontab -l | grep "$line"; then
+  if crontab -l|grep "$BYOBU_CONFIG_DIR/bin/UpMachines/check_UpMachines.sh"; then
     echo "Crontab already contains the line for script.";
   else
     (crontab -l; echo "$line") | crontab - ;
     echo "Crontab updated.";
+  fi
+
+  if [ ! -e $HOME/.UpMachines.conf ]; then
+    cp machines.conf $HOME/.UpMachines.conf;
+    echo "Config file created at '$HOME/.UpMachines.conf'. Please update the file accordingly.";
   fi
 
 else
