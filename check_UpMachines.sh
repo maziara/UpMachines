@@ -5,8 +5,8 @@
 # in the 'UpMachines' subfolder.
 #This script better be run as an scheduled cron task
 
-ProjectPath=`dirname $0`
-LabelsPath="/UpMachines"
+source paths.conf
+
 while read line
 do
   line=`echo $line | sed 's/^#.*//'`
@@ -18,9 +18,9 @@ do
     wait_time=`echo $line | awk -F " " '{print ($4)}'`;
 
     if nc -z -w $wait_time $address $port; then
-      touch $ProjectPath/$LabelsPath/$label;
+      touch $LabelsPath/$label;
     else
-      if [ -e $ProjectPath/$LabelsPath/$label ]; then rm $ProjectPath/$LabelsPath/$label; fi
+      if [ -e $LabelsPath/$label ]; then rm $LabelsPath/$label; fi
     fi
 
   fi
