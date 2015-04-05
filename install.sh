@@ -17,7 +17,7 @@ if [ -e byobu_show_UpMachines.sh ]; then
     echo "Label folders created.";
   fi
 
-  line="*/5 * * * * $BYOBU_CONFIG_DIR/bin/UpMachines/check_UpMachines.sh"
+  line="*/5 * * * * $BYOBU_CONFIG_DIR/bin/UpMachines/check_UpMachines.sh >> $BYOBU_CONFIG_DIR/bin/UpMachines/errorlog.txt 2>&1"
   if crontab -l|grep "$BYOBU_CONFIG_DIR/bin/UpMachines/check_UpMachines.sh"; then
     echo "Crontab already contains the line for script.";
   else

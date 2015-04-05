@@ -5,7 +5,9 @@
 # in the 'UpMachines' subfolder.
 #This script better be run as an scheduled cron task
 
-source $BYOBU_CONFIG_DIR/bin/UpMachines/paths.conf
+#source $BYOBU_CONFIG_DIR/bin/UpMachines/paths.conf
+ProjectPath=`dirname $0`
+LabelsPath="$ProjectPath/UpMachines"
 
 while read line
 do

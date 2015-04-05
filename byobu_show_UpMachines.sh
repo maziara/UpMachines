@@ -7,7 +7,9 @@
 #According to byobu's documentation, the name of the script must start with the 
 # delayed seconds it will be run. e.g. "10_script.sh" means script will run every 10 seconds.
 
-source $BYOBU_CONFIG_DIR/bin/UpMachines/paths.conf
+#source $BYOBU_CONFIG_DIR/bin/UpMachines/paths.conf
+ProjectPath="$BYOBU_CONFIG_DIR/bin/UpMachines"
+LabelsPath="$ProjectPath/UpMachines"
 
 while read line
 do
