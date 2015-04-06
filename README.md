@@ -4,7 +4,7 @@ A custom_script for BYOBU to check for some network services/ports and report on
 ### INSTALLATION
 clone in the bin folder of your home BYOBU folder.
 ```console
-git -c https://github.com/maziara/UpMachines.git $BYOBU_CONFIG_DIR/bin/UpMachines
+git clone https://github.com/maziara/UpMachines.git $BYOBU_CONFIG_DIR/bin/UpMachines
 ```
 
 Run the 'install.sh' script from the cloned project folder:
